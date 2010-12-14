@@ -77,10 +77,11 @@ if(IPP_FOUND AND USE_IPP)
     else()
         set(L)
     endif()
-    set(IPP_LIBS ${A}ippsmerged${B} ${A}ippsemerged${B}
+    set(IPP_LIBS ${A}ippjmerged${B} ${A}ippjemerged${B}
                  ${A}ippimerged${B} ${A}ippiemerged${B}
-                 ${A}ippvmmerged${B} ${A}ippvmemerged${B}
-                 ${A}ippccmerged${B} ${A}ippccemerged${B}
-                 ${A}ippcvmerged${B} ${A}ippcvemerged${B}
+                 ${A}ippsmerged${B} ${A}ippsemerged${B}
+                 #                 ${A}ippvmmerged${B} ${A}ippvmemerged${B}
+                 #                 ${A}ippccmerged${B} ${A}ippccemerged${B}
+                 #                 ${A}ippcvmerged${B} ${A}ippcvemerged${B}
                  ${A}ippcore${IPP_ARCH}${L}${CMAKE_STATIC_LIBRARY_SUFFIX})
 endif()

@@ -31,12 +31,24 @@ int jpeg_decompress_8u_gray (const uint8_t * src, int src_size,
         uint8_t * dest, int width, int height, int stride);
 
 /**
- * JPEG compress 8-bit grayscale data.
+ * @dest: output buffer
+ * @destsize:  input and output parameter.  On input, stores the buffer size
+ * available in dest.  On output, stores the amount of buffer used for the compressed
+ * data.
+ * @quality: compression quality.  0 - 100.
+ *
+ * JPEG compress 8-bit grayscale data.  
  */
 int jpeg_compress_8u_gray (const uint8_t * src, int width, int height, int stride,
         uint8_t * dest, int * destsize, int quality);
 
 /**
+ * @dest: output buffer
+ * @destsize:  input and output parameter.  On input, stores the buffer size
+ * available in dest.  On output, stores the amount of buffer used for the compressed
+ * data.
+ * @quality: compression quality.  0 - 100.
+ *
  * JPEG compress 8-bit grayscale data.
  */
 int jpeg_compress_8u_rgb (const uint8_t * src, int width, int height, int stride,

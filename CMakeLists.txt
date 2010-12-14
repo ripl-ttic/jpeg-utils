@@ -4,6 +4,6 @@ cmake_minimum_required(VERSION 2.6.0)
 set(POD_NAME jpeg-utils)
 include(cmake/pods.cmake)
 
-include(cmake/FindIPP.cmake)
+#include(cmake/FindIPP.cmake)
 
 add_subdirectory(src)

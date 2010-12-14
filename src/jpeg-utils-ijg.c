@@ -36,9 +36,29 @@ jpeg_err_emit_message(j_common_ptr cinfo, int msg_level)
     // suppress warnings and errors
 }
 
-int
-jpegijg_decompress_to_8u_rgb (const uint8_t * src, int src_size,
+static int
+jpegijg_decompress_8u (const uint8_t * src, int src_size,
+        uint8_t * dest, int width, int height, int stride, J_COLOR_SPACE ocs);
+
+int 
+jpegijg_decompress_8u_rgb (const uint8_t * src, int src_size,
         uint8_t * dest, int width, int height, int stride)
+{
+    return jpegijg_decompress_8u (src, src_size, dest, width, height,
+            stride, JCS_RGB);
+}
+
+int 
+jpegijg_decompress_8u_gray (const uint8_t * src, int src_size,
+        uint8_t * dest, int width, int height, int stride)
+{
+    return jpegijg_decompress_8u (src, src_size, dest, width, height,
+            stride, JCS_GRAYSCALE);
+}
+
+int
+jpegijg_decompress_8u (const uint8_t * src, int src_size,
+        uint8_t * dest, int width, int height, int stride, J_COLOR_SPACE ocs)
 {
     struct jpeg_decompress_struct cinfo;
     struct jpeg_error_mgr jerr;
@@ -58,7 +78,7 @@ jpegijg_decompress_to_8u_rgb (const uint8_t * src, int src_size,
     cinfo.src = &jsrc;
 
     jpeg_read_header (&cinfo, TRUE);
-    cinfo.out_color_space = JCS_RGB;
+    cinfo.out_color_space = ocs;
     jpeg_start_decompress (&cinfo);
 
     if (cinfo.output_height != height || cinfo.output_width != width) {
