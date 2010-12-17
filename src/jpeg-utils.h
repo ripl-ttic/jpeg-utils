@@ -1,5 +1,5 @@
-#ifndef _jpeg_utils_h_
-#define _jpeg_utils_h_
+#ifndef _jpeg_utils_ijg_h_
+#define _jpeg_utils_ijg_h_
 
 #ifdef __cplusplus
 extern "C" {
@@ -10,15 +10,13 @@ extern "C" {
 /**
  * @defgroup JpegUtils JPEG Utilities
  * @brief Convenience functions for JPEG compression / decompression.
- *
- * Uses IPP if available (detected at library compile time), and falls back
- * to libjpeg if not.
  */
 
 /**
  * Decompress JPEG data into an 8-bit RGB buffer.
  */
-int jpeg_decompress_8u_rgb (const uint8_t * src, int src_size,
+int
+jpeg_decompress_8u_rgb (const uint8_t * src, int src_size,
         uint8_t * dest, int width, int height, int stride);
 
 /**
@@ -27,7 +25,8 @@ int jpeg_decompress_8u_rgb (const uint8_t * src, int src_size,
  * is decompressed.  This is faster than decompressing to RGB and converting to
  * grayscale.
  */
-int jpeg_decompress_8u_gray (const uint8_t * src, int src_size,
+int
+jpeg_decompress_8u_gray (const uint8_t * src, int src_size,
         uint8_t * dest, int width, int height, int stride);
 
 /**
@@ -39,7 +38,8 @@ int jpeg_decompress_8u_gray (const uint8_t * src, int src_size,
  *
  * JPEG compress 8-bit grayscale data.  
  */
-int jpeg_compress_8u_gray (const uint8_t * src, int width, int height, int stride,
+int
+jpeg_compress_8u_gray (const uint8_t * src, int width, int height, int stride,
         uint8_t * dest, int * destsize, int quality);
 
 /**
@@ -51,16 +51,16 @@ int jpeg_compress_8u_gray (const uint8_t * src, int width, int height, int strid
  *
  * JPEG compress 8-bit grayscale data.
  */
-int jpeg_compress_8u_rgb (const uint8_t * src, int width, int height, int stride,
+int
+jpeg_compress_8u_rgb (const uint8_t * src, int width, int height, int stride,
         uint8_t * dest, int * destsize, int quality);
-
-/**
- * Returns one of "libjpeg", "IPP"
- */
-const char* jpeg_get_backend_name(void);
+int
+jpeg_compress_8u_bgra (const uint8_t * src, int width, int height, int stride,
+        uint8_t * dest, int * destsize, int quality);
 
 #ifdef __cplusplus
 }
 #endif
+
 
 #endif
