@@ -5,11 +5,19 @@
     </maintainers>
 
     <summary>
+        Wrapper functions around libjpeg to simplify JPEG compression and
+        decompression with in-memory buffers.
     </summary>
 
     <description>
+        note: This is a simple enough library that you could just copy the .c
+        and .h files in to your own programs.
     </description>
 
     <requirements>
+        libjpeg62
+
+        For faster performance, install libjpeg-turbo, an SSE-accelerated
+        library that is ABI compatible with libjpeg62.
     </requirements>
 </pod>
