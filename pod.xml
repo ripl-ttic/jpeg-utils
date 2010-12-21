@@ -2,6 +2,7 @@
     <name>jpeg-utils</name>
 
     <maintainers>
+        Albert Huang, albert@csail.mit.edu
     </maintainers>
 
     <summary>
@@ -12,6 +13,9 @@
     <description>
         note: This is a simple enough library that you could just copy the .c
         and .h files in to your own programs.
+
+        To use the library, link against -ljpeg-utils, or use 
+        pkg-config --cflags --libs jpeg-utils
     </description>
 
     <requirements>
