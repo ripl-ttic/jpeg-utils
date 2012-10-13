@@ -7,7 +7,7 @@ add_library(jpeg-utils SHARED jpeg-utils.c)
 # changes.
 set_target_properties(jpeg-utils PROPERTIES SOVERSION 1)
 
-target_link_libraries(jpeg-utils ${LIBJPEG_LIBRARIES})
+target_link_libraries(jpeg-utils ${JPEG_LIBRARIES})
 
 # make the header public
 # install it to include/hello
